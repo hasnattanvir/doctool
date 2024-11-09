@@ -107,18 +107,23 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('admin.settings')}}" class="nav-link">
+                  <a href="{{route('admin.patients.index')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>All Patient</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('admin.settings')}}" class="nav-link">
+                  <a href="{{route('patients.create')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Add New Patient</p>
                   </a>
                 </li>
-                
+                <li class="nav-item">
+                  <a href="{{route('patients.trashIndex')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Trash Datas</p>
+                  </a>
+                </li>
               </ul>
           </li>
 

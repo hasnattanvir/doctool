@@ -4,11 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="csrf-token" content="{{csrf_token()}}">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>@yield('title')</title>
+
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  {{-- datatable --}}
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
   <!-- overlayScrollbars -->
@@ -17,6 +21,7 @@
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
 
   <link rel="stylesheet" href="{{asset('plugins/ijaboCropTool/ijaboCropTool.min.css')}}">
+
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -57,7 +62,12 @@
 <!-- jQuery -->
 {{-- <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script> --}}
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
 <!-- Bootstrap -->
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- overlayScrollbars -->
@@ -169,9 +179,32 @@
     });
 
 
+ 
 
 
+  });
 
+  $(document).on('click', '.delete-patient', function() {
+    var patientId = $(this).data('id'); // Get the patient ID
+    var row = $(this).closest('tr'); // Get the row to remove after deletion
+
+    // Optional confirmation before deletion
+    if (confirm('Are you sure you want to move this patient to trash?')) {
+        $.ajax({
+            url: '/admin/patients/' + patientId + '/trash', // Ensure this URL is correct
+            type: 'POST',
+            data: {
+                _token: $('meta[name="csrf-token"]').attr('content') // CSRF Token for security
+            },
+            success: function(response) {
+                row.remove();  // Remove the row from DataTable
+                alert(response.message);  // Show success message
+            },
+            error: function(xhr, status, error) {
+                alert('Error deleting patient: ' + error);  // Improved error handling
+            }
+        });
+    }
   });
 </script>
 </body>
