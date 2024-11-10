@@ -49,18 +49,48 @@
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{route('admin.dashboard')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="fa fa-fw fa-angle-right"></i>
                     <p>Dashboard</p>
                   </a>
                 </li>
               </ul>
             </li>
 
+            <li class="nav-item">
+                <a href="#" class="nav-link {{(request()->is('admin/admin/patients'))?'active':''}}">
+                  <i class="nav-icon fas fa-user-plus"></i>
+                  <p>
+                    Patient info
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('admin.patients.index')}}" class="nav-link">
+                      <i class="fa fa-fw fa-angle-right"></i>
+                      <p>All Patient</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('patients.create')}}" class="nav-link">
+                      <i class="fa fa-fw fa-angle-right"></i>
+                      <p>Add New Patient</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('patients.trashIndex')}}" class="nav-link">
+                      <i class="fa fa-fw fa-angle-right"></i>
+                      <p>Trash Datas</p>
+                    </a>
+                  </li>
+                </ul>
+            </li>
 
+            
 
             <li class="nav-item">
                 <a href="#" class="nav-link {{(request()->is('admin/profile'))?'active':''}}">
-                  <i class="nav-icon fas fa-tree"></i>
+                  <i class="nav-icon fas fa-user"></i>
                   <p>
                     Profile
                     <i class="fas fa-angle-left right"></i>
@@ -69,7 +99,7 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="{{route('admin.profile')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+                      <i class="fa fa-fw fa-angle-right"></i>
                       <p>General</p>
                     </a>
                   </li>
@@ -80,7 +110,7 @@
 
             <li class="nav-item">
                 <a href="#" class="nav-link {{(request()->is('admin/settings'))?'active':''}}">
-                  <i class="nav-icon fas fa-tree"></i>
+                  <i class="nav-icon fas fa-cogs"></i>
                   <p>
                     Settings
                     <i class="fas fa-angle-left right"></i>
@@ -89,7 +119,7 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="{{route('admin.settings')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+                      <i class="fa fa-fw fa-angle-right"></i>
                       <p>General</p>
                     </a>
                   </li>
@@ -97,35 +127,7 @@
                 </ul>
             </li>
 
-            <li class="nav-item">
-              <a href="#" class="nav-link ">
-                <i class="nav-icon fas fa-tree"></i>
-                <p>
-                  Patient info
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="{{route('admin.patients.index')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>All Patient</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('patients.create')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add New Patient</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('patients.trashIndex')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Trash Datas</p>
-                  </a>
-                </li>
-              </ul>
-          </li>
+            
 
 
             

@@ -1,7 +1,7 @@
 @extends('dashboard.admins.layouts.admin-dash-layout')
 
 @section('content')
-<div class="container">
+<div class="content">
     <h2>Trashed Patients</h2>
     @if(session('success'))
         <div class="alert alert-success">

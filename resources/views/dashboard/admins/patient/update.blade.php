@@ -1,7 +1,7 @@
 @extends('dashboard.admins.layouts.admin-dash-layout')
 
 @section('content')
-    <div class="container">
+    <div class="content">
         <h2>Edit Patient Information</h2>
 
         <!-- Display validation errors -->
